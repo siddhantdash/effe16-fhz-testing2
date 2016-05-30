@@ -1,0 +1,515 @@
+*{
+	/*padding: 0px !important;
+	margin: 0px !important;*/
+	box-sizing: border-box;
+}
+
+html,body{
+	height: 100vh;
+	width: 100%;
+}
+
+body{
+	display: block;
+	position: relative;
+	background-color: #E4F1F9;
+/*	background: -webkit-linear-gradient(#D4E6F9 1%, #BBECFF 70%, #b1b5ea 100%);
+*/	background-repeat: no-repeat;
+	/*overflow: hidden;*/
+}
+
+header{
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	width: 100vw;
+	height: 15vh;
+	z-index: 200;
+}
+
+#tickets{
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+
+}
+
+#access-area{
+	position: relative;
+	height: 90px;
+}
+
+#tickets > div,
+#access-area > div{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+}
+
+#tickets img{
+	position: relative;
+	height: 55%;
+	margin-left: 10px !important;
+	margin-right: 10px !important;
+	transform: rotateZ(-10deg);
+	cursor: pointer;
+}
+
+#access-area img{
+	position: relative;
+	height: 55%;	
+	margin-left: 10px !important;
+	margin-right: 10px !important;
+	transform: rotateZ(10deg);
+	cursor: pointer;
+}
+
+#banner{
+	height: 100%;
+	margin-left: 38%;
+	margin-right: 20%;
+	cursor: pointer;
+}
+
+#loader-till-window-load{
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: calc(103vh);
+	background-color: white;
+	opacity: 0.5;
+	z-index:2000;
+}
+
+#loader-till-window-load img{
+	width:7%;
+	height:15%;
+	min-width: 50px;
+	min-height: 75px;
+}
+
+
+#scroller-wrapper{
+	position: relative;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: calc(103vh);
+}
+
+#scroller-wrapper > div{
+	height: 100vh !important;
+}
+
+#layer-container{
+	position: relative;
+	width: 2500px;
+	height: calc(100vh - 30px);
+}
+
+.layer{
+	position: absolute;
+}
+
+.on-base{
+	top: 0;
+	left: 0;
+	z-index: 100;
+}
+
+#layer-1{
+	width: 100%;
+	height: 100%;
+	z-index: 500;
+}
+
+#fence-layer{
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 8%;
+	background: url("../images/fence1.png");
+	background-repeat: repeat-x;
+	background-size: auto 100%;
+}
+
+#layer-2{
+	/*if and when it comes*/
+	z-index: 400;
+}
+
+#base{
+	/*min-width: 2500px;*/
+	background: #CC5350;
+	height: 30px;
+	border-top: 2px solid #DCA09F;
+}
+
+img{
+	width: auto;
+	height: 100%;
+}
+
+/*Elements in layer-1 ,in order from left to right*/
+/* The ferris wheel will be in layer-1 but with a behind the tents*/
+
+.tent{
+	width :auto;
+	position: absolute;
+	bottom: 0;
+	z-index: 510;
+}
+
+.tent.tiny{
+	height: 10%;
+}
+
+.tent.small{
+	height: 15%;
+}
+
+.tent.medium{
+	height: 24%;
+}
+
+.tent.large{
+	height: 35%;
+}
+
+.tent img{
+	cursor: pointer;
+}
+
+/* Use this to force user to see the website in landscape mode only*/
+@media (orientation: portrait){
+	#scroller-wrapper{
+		display: none
+	}
+}
+
+/*The all great ferris wheel*/
+#ferris-wheel{
+	position: absolute;
+	bottom: 0;
+	height: 580px;
+	width: 500px;
+	/*z-index: 520;*/
+	/*ferris-wheel has a lower z-index than the tents*/
+}
+
+#ferris-wheel #wheel-wrapper{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 500px;
+	height: 500px;
+	/*background: gray;*/
+}
+
+#ferris-wheel .wheel{
+	position: absolute;
+	border-radius: 50%;
+	border: 1px solid lightgray;
+}
+
+#ferris-wheel #wheel-wrapper #inner-wheel{
+	top: calc(250px - 12px);
+	left: calc(250px - 12px);
+	width: 24px;
+	height: 24px;
+	background: #CACACA;
+	border: 6px solid #A0A0A0;
+}
+
+#ferris-wheel #wheel-wrapper #inner-ring{
+	top: calc(250px - 25px);
+	left: calc(250px - 25px);
+	width: 50px;
+	height: 50px;
+	border: 2px solid #CACACA;
+}
+
+#ferris-wheel #wheel-wrapper #outer-wheel{
+	top: calc(250px - 220px);
+	left: calc(250px - 220px);
+	width: 440px;
+	height: 440px;
+	border: 5px solid #A0A0A0;
+}
+
+#ferris-wheel #wheel-wrapper #outer-ring{
+	top: 0;
+	left: 0;
+	width: 500px;
+	height: 500px;
+	border: 18px solid #A0A0A0;
+}
+
+#ferris-wheel #wheel-wrapper .spoke{
+	position: absolute;
+	width: 500px;
+	height: 2px;
+	top: 249px;
+	left: 0;
+	background: #CACACA;
+}
+
+#ferris-wheel #wheel-wrapper .spoke:nth-child(1){
+	transform: rotateZ(0deg);
+}
+
+#ferris-wheel #wheel-wrapper .spoke:nth-child(2){
+	transform: rotateZ(45deg);
+}
+
+#ferris-wheel #wheel-wrapper .spoke:nth-child(3){
+	transform: rotateZ(90deg);
+}
+
+#ferris-wheel #wheel-wrapper .spoke:nth-child(4){
+	transform: rotateZ(135deg);
+}
+
+#ferris-wheel #stand-wrapper{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 500px;
+	height: 320px;
+}
+
+#ferris-wheel #stand-wrapper .stand{
+	position: absolute;
+	top: 0;
+	left: 246px;
+	width: 8px;
+	height: 116%;
+	background: #A0A0A0;
+	transform-origin: top center;
+}
+
+#ferris-wheel #stand-wrapper #left-stand{
+	transform: rotateZ(30deg);
+}
+
+#ferris-wheel #stand-wrapper #right-stand{
+	transform: rotateZ(-30deg);
+}
+
+#ferris-wheel #seats-wrapper{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 500px;
+	height: 500px;
+	will-change: transform;
+}
+
+#ferris-wheel #seats-wrapper .seat{
+	position: absolute;
+	top: -5px;
+	left: 0;
+	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 40px;
+	height: 40px;
+	will-change: transform;
+}
+
+#ferris-wheel #seats-wrapper .seat span{
+	width: 100%;
+}	
+
+#ferris-wheel #seats-wrapper .seat span:nth-child(1){
+	height: 5px;
+	background: red;
+	border-top-left-radius: 2px;
+	border-top-right-radius: 2px;
+}
+
+#ferris-wheel #seats-wrapper .seat span:nth-child(2){
+	height: 15px;
+	background: skyblue;
+	opacity: 0.4;
+}
+
+#ferris-wheel #seats-wrapper .seat span:nth-child(3){
+	height: 20px;
+	background: red;
+	border-bottom-left-radius: 10px; 
+	border-bottom-right-radius: 10px;
+}
+
+#ferris-wheel #seats-wrapper .seat:nth-child(1){
+	top: -5px;
+	left: 230px;
+}
+
+#ferris-wheel #seats-wrapper .seat:nth-child(2){
+	top: 70px;
+    left: 400px;
+}
+
+#ferris-wheel #seats-wrapper .seat:nth-child(3){
+	top: 225px;
+	left: 460px;
+}
+
+#ferris-wheel #seats-wrapper .seat:nth-child(4){
+	top: 400px;
+	left: 400px;
+}
+
+#ferris-wheel #seats-wrapper .seat:nth-child(5){
+	top: 465px;
+	left: 230px;
+}
+
+#ferris-wheel #seats-wrapper .seat:nth-child(6){
+	top: 400px;
+	left: 70px;
+}
+
+#ferris-wheel #seats-wrapper .seat:nth-child(7){
+	top: 225px;
+	left: 0px;
+}
+
+#ferris-wheel #seats-wrapper .seat:nth-child(8){
+	top: 70px;
+	left: 70px;
+}
+
+/* popup starts */
+
+.wrap {
+  position: absolute;
+  overflow: hidden;
+  top: 10%;
+  right: 10%;
+  bottom: 85px;
+  left: 10%;
+  padding: 20px 50px;
+  display: block;
+  border-radius: 4px;
+  transform: translateY(20px);
+  transition: all 0.5s;
+  visibility: hidden;
+  z-index:200;
+}
+.wrap .content {
+  opacity: 0;
+}
+.wrap:before {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  background: white;
+  content: "";
+  bottom: 10px;
+  left: 50%;
+  top: 95%;
+  color: #fff;
+  border-radius: 50%;
+  -webkit-transition: all 600ms cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: all 600ms cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.wrap.active {
+  display: block;
+  visibility: visible;
+  box-shadow: 2px 3px 16px silver;
+  transition: all 600ms;
+  transform: translateY(0px);
+  transition: all 0.5s;
+}
+.wrap.active:before {
+  height: 2000px;
+  width: 2000px;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  margin-left: -1000px;
+  margin-top: -1000px;
+  display: block;
+  -webkit-transition: all 600ms cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: all 600ms cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.wrap.active .content {
+  position: relative;
+  z-index: 1;
+  opacity: 1;
+  transition: all 600ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+#close{
+	z-index:200;
+	width:40px;
+	height:40px;
+	position:fixed;
+	left: 49%;
+	top: 84%;
+	visibility: hidden;
+	opacity: 0;
+	transition: all 0.5s;
+	cursor: pointer;
+}
+#close.active{
+	opacity: 1;
+	visibility: visible;
+}
+
+/* popup ends */
+
+/* Ca-page styling */
+
+.main-content {
+/*	margin: 15% 10% 50% 10%;
+*/
+}
+
+#ca-banner {
+	position: relative;
+	 
+}
+
+.navbar-material .nav-wrapper .brand-logo img {
+    height: 64px;
+}
+
+#sec1 {
+/*	margin-top: 0%;
+*/
+}
+
+.resp-list {
+	text-align: left;
+}
+
+.pt-list {
+	text-align: left;
+}
+
+.resp-list > ul li{
+	list-style-type: disc;
+}
+
+.divider {
+	clear: both;
+}
+
+.form-frame {
+	clear: right;
+}
